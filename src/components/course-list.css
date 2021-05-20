@@ -1,0 +1,22 @@
+.course-list-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.course-list-container h2 {
+  font-size: medium;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  border-bottom: 2px solid blue;
+}
+
+.course-item {
+  width: 20%;
+  background-color: slateblue;
+  font-weight: 700;
+  padding: 5rem;
+}
