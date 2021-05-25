@@ -18,5 +18,19 @@
   width: 20%;
   background-color: slateblue;
   font-weight: 700;
-  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid red;
+}
+
+.course-item img {
+  height: 10rem;
+  width: 100%;
+}
+
+.course-item input {
+  padding: 0.5rem;
 }

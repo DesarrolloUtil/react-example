@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div>
       <h1>Desarrollo Útil</h1>
-      <CourseList tituloLista="Lista Index" numeroElementos={12} />
+      <CourseList tituloLista="Lista Index" />
     </div>
   );
 };

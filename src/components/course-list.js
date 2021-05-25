@@ -1,18 +1,42 @@
+import { createContext, useState } from "react";
+import coursesMapped from "../data/courses";
 import CourseItem from "./course-item";
 import "./course-list.css";
 
-const CourseList = (props) => {
-  const courseItems = [];
+const LikeContext = createContext("LikeContext");
 
-  for (let i = 0; i < props.numeroElementos; i++) {
-    courseItems.push(<CourseItem indice={i} />);
-  }
+const CourseList = (props) => {
+  const [coursesData, setCoursesData] = useState(coursesMapped);
+  const [likeIcon, setLikeIcon] = useState("❤️");
+
+  const courseItems = coursesData.map((courseData, index) => (
+    <CourseItem
+      key={courseData.id}
+      name={courseData.name}
+      img={courseData.img}
+      likeIcon={likeIcon}
+    />
+  ));
+
+  console.log(courseItems);
 
   return (
-    <div className="course-list-container">
-      <h2>{props.tituloLista}</h2>
-      {courseItems}
-    </div>
+    <LikeContext.Provider value={{ likeIcon, setLikeIcon }}>
+      <div className="course-list-container">
+        <ComponenteInventado />
+        <h2>{props.tituloLista}</h2>
+        {courseItems}
+        <button
+          onClick={() =>
+            setCoursesData(
+              coursesData.filter((dataValue, index) => index !== 1)
+            )
+          }
+        >
+          Eliminar 2
+        </button>
+      </div>
+    </LikeContext.Provider>
   );
 };
 
