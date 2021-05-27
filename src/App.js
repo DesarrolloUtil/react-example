@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CardList from "./components/cards/card-list";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import { AuthContext } from "./lib/auth.context";
@@ -10,7 +11,7 @@ const App = () => {
     <>
       <AuthContext.Provider value={{ auth, setAuth }}>
         <Header />
-        {!auth && <Login />}
+        {auth ? <CardList /> : <Login />}
       </AuthContext.Provider>
       <footer></footer>
     </>
